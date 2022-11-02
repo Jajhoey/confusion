@@ -1,17 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 //eslint-disable-next-line
 import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap';
 
-class DishDetail extends Component {
-  constructor(props){
-    super(props);
 
-    this.state = {
-      selectedDish: this.props.selectedDish,
-    };
-  }
 
-  renderDish(dish){
+  function RenderDish({dish}){
     if (dish != null){
       return (
         <div className='col-12 col-md-5 m-1'>
@@ -33,7 +26,7 @@ class DishDetail extends Component {
     }
   }
 
-  renderComments(dish){
+  function RenderComments({dish}){
     var heading = null;
     var comments = null;
 
@@ -61,20 +54,15 @@ class DishDetail extends Component {
     );
   }
 
-
-
-  render(){
-    const dish = this.props.selectedDish;
-
+  const DishDetail = (props) => {
     return(
       <div className='container'>
         <div className='row'>
-            {this.renderDish(dish)}
-            {this.renderComments(dish)}
+            <RenderDish dish = {props.dish}/>
+            <RenderComments dish = {props.dish.comments}/>
         </div>
       </div>
     );
   }
-}
 
 export default DishDetail;
