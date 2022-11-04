@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './MenuComponent';
-import DishDetail from './DishDetailComponent'
-import {DISHES} from '../shared/dishes'
+import DishDetail from './DishDetailComponent';
+import {DISHES} from '../shared/dishes';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 
 
 class Main extends Component {
@@ -21,16 +22,13 @@ class Main extends Component {
   render(){
     return (
       <div>
-        <Navbar dark color='primary'>
-          <div className='container'>
-            <NavbarBrand href='/'>Ristorante Con Fusion</NavbarBrand>
-          </div>
-        </Navbar>
+        <Header/>
         <Menu dishes={this.state.dishes}
               onClick={(dishId) => this.onDishSelect(dishId)}/>
         {/*filter() is creating an array of length 1, hence the [0] passed within function to return the singular item of that array*/}
         <DishDetail selectedDish = {this.state.selectedDish}
                     dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}/>
+        <Footer/>
       </div>
     );
   }

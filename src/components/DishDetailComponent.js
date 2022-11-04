@@ -59,7 +59,7 @@ import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reac
       <div className='container'>
         <div className='row'>
             <RenderDish dish = {props.dish}/>
-            <RenderComments dish = {props.dish.comments}/>
+            <RenderComments dish = {props.dish}/>
         </div>
       </div>
     );
